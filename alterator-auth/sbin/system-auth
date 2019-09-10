@@ -509,6 +509,7 @@ enable_service() {
         [ -n "$(service $service status| grep '^active\|running$')" ] && service $service stop &>/dev/null
         service $service start >/dev/null
     fi
+    return 0
 }
 
 # Disable service and stop it
@@ -518,6 +519,7 @@ disable_service() {
         chkconfig $service off &>/dev/null
         [ -n "$(service $service status| grep '^active\|running$')" ] && service $service stop &>/dev/null
     fi
+    return 0
 }
 
 # Set correct FQDN
